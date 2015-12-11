@@ -1,0 +1,126 @@
+{
+	"sprite_set": "Data/Player/newplayer.bmp",
+	"animations": [
+		{
+			"name": "still",
+			"framerate": 200,
+			"framecount": 1,
+			"frames": [
+				{
+					"frame": 0,
+					"pos_x": 0,
+					"pos_y": 220,
+					"width": 32,
+					"height": 55
+				}
+			]
+		},
+		{
+			"name": "walk-side",
+			"framerate": 150,
+			"framecount": 4,
+			"frames": [
+				{
+					"frame": 0,
+					"pos_x": 0,
+					"pos_y": 55,
+					"width": 32,
+					"height": 55
+				},
+				{
+					"frame": 1,
+					"pos_x": 32,
+					"pos_y": 55,
+					"width": 32,
+					"height": 55
+				},
+				{
+					"frame": 2,
+					"pos_x": 64,
+					"pos_y": 55,
+					"width": 32,
+					"height": 55
+				},
+				{
+					"frame": 3,
+					"pos_x": 96,
+					"pos_y": 55,
+					"width": 32,
+					"height": 55
+				}
+			]
+		},
+		{
+			"name": "walk-up",
+			"framerate": 150,
+			"framecount": 4,
+			"frames": [
+				{
+					"frame": 0,
+					"pos_x": 0,
+					"pos_y": 165,
+					"width": 32,
+					"height": 55
+				},
+				{
+					"frame": 1,
+					"pos_x": 32,
+					"pos_y": 165,
+					"width": 32,
+					"height": 55
+				},
+				{
+					"frame": 2,
+					"pos_x": 62,
+					"pos_y": 165,
+					"width": 32,
+					"height": 55
+				},
+				{
+					"frame": 3,
+					"pos_x": 96,
+					"pos_y": 165,
+					"width": 32,
+					"height": 55
+				}
+			]
+		},
+		{
+			"name": "walk-down",
+			"framerate": 150,
+			"framecount": 4,
+			"frames": [
+				{
+					"frame": 0,
+					"pos_x": 0,
+					"pos_y": 0,
+					"width": 32,
+					"height": 55
+				},
+				{
+					"frame": 1,
+					"pos_x": 32,
+					"pos_y": 0,
+					"width": 32,
+					"height": 55
+				},
+				{
+					"frame": 2,
+					"pos_x": 62,
+					"pos_y": 0,
+					"width": 32,
+					"height": 55
+				},
+				{
+					"frame": 3,
+					"pos_x": 96,
+					"pos_y": 0,
+					"width": 32,
+					"height": 55
+				}
+			]
+		}
+
+
+	]
+}

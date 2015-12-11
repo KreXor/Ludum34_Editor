@@ -1,0 +1,90 @@
+{
+	"sprite_set": "Data/Player/player.bmp",
+	"animations": [
+		{
+			"name": "still",
+			"framerate": 200,
+			"framecount": 1,
+			"frames": [
+				{
+					"frame": 0,
+					"pos_x": 0,
+					"pos_y": 0,
+					"width": 42,
+					"height": 70
+				}
+			]
+		},
+		{
+			"name": "walk-side",
+			"framerate": 150,
+			"framecount": 4,
+			"frames": [
+				{
+					"frame": 0,
+					"pos_x": 0,
+					"pos_y": 70,
+					"width": 42,
+					"height": 70
+				},
+				{
+					"frame": 1,
+					"pos_x": 42,
+					"pos_y": 70,
+					"width": 42,
+					"height": 70
+				},
+				{
+					"frame": 2,
+					"pos_x": 84,
+					"pos_y": 70,
+					"width": 42,
+					"height": 70
+				},
+				{
+					"frame": 3,
+					"pos_x": 125,
+					"pos_y": 70,
+					"width": 42,
+					"height": 70
+				}
+			]
+		},
+		{
+			"name": "walk-up",
+			"framerate": 150,
+			"framecount": 4,
+			"frames": [
+				{
+					"frame": 0,
+					"pos_x": 0,
+					"pos_y": 140,
+					"width": 42,
+					"height": 70
+				},
+				{
+					"frame": 1,
+					"pos_x": 42,
+					"pos_y": 140,
+					"width": 42,
+					"height": 70
+				},
+				{
+					"frame": 2,
+					"pos_x": 84,
+					"pos_y": 140,
+					"width": 42,
+					"height": 70
+				},
+				{
+					"frame": 3,
+					"pos_x": 125,
+					"pos_y": 140,
+					"width": 42,
+					"height": 70
+				}
+			]
+		}
+
+	]
+}

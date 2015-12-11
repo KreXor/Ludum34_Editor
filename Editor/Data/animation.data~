@@ -1,0 +1,75 @@
+{
+    	"type": "player",
+    	"sprite_set": "Data/Player/player.bmp",
+	"animation": [
+		{
+			"name": "still",
+			"framerate": 200,
+			"framecount": 1,
+			"frames": [
+				{
+					"frame": 0,
+					"pos_x": 0,
+					"pos_y": 0,
+					"widht": 42,
+					"height: 70
+				}
+			]
+		},
+		{
+			"name": "walk",
+			"framerate": 150,
+			"framecount": 4,
+			"frames": [
+				{
+					"frame": 0,
+					"pos_x": 0,
+					"pos_y": 70,
+					"widht": 42,
+					"height: 70
+				},
+				{
+					"frame": 1,
+					"pos_x": 42,
+					"pos_y": 70,
+					"widht": 42,
+					"height: 70
+				},
+				{
+					"frame": 2,
+					"pos_x": 84,
+					"pos_y": 70,
+					"widht": 42,
+					"height: 70
+				},
+				{
+					"frame": 3,
+					"pos_x": 42,
+					"pos_y": 125,
+					"widht": 42,
+					"height: 70
+				}
+			]
+		}
+
+	]
+}
+<Type(player)>
+	Path = Data\\Player\\player.bmp
+	<Animation> : player_still
+		FrameRate = 200
+		FrameCount = 1
+		0,0,0,42,70
+	<Animation> : player_Walk_FaceFront
+		FrameRate = 150
+		FrameCount = 4
+		0,0,70,42,70
+		1,42,70,42,70
+		2,84,70,42,70
+		3,125,70,42,70
+	<Animation> : player_Wave
+		FrameRate = 150
+		FrameCount = 3
+		0,0,140,42,70
+		1,42,140,42,70
+		2,84,140,42,70
