@@ -107,6 +107,14 @@ void InputHandler::CheckInput(GameEngine* game)
 				keyW.pressed = true;
 
 			}
+			if (event.key.keysym.sym == SDLK_4){
+				key4.pressed = true;
+
+			}
+			if (event.key.keysym.sym == SDLK_5){
+				key5.pressed = true;
+
+			}
 			
 		}
 
@@ -144,6 +152,14 @@ void InputHandler::CheckInput(GameEngine* game)
 			}
 			if (event.key.keysym.sym == SDLK_3){
 				key3.pressed = false;
+
+			}
+			if (event.key.keysym.sym == SDLK_4){
+				key4.pressed = false;
+
+			}
+			if (event.key.keysym.sym == SDLK_5){
+				key5.pressed = false;
 
 			}
 			if (event.key.keysym.sym == SDLK_a){

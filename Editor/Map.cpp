@@ -29,7 +29,7 @@ void Map::save()
 	json += "\"tile_width_count\":" + std::to_string(this->tiles_width_count);
 	json += ",\"tile_height_count\":" + std::to_string(this->tiles_heigth_count);
 	json += ",\"tile_set\" : \"Data/Tiles/Tiles.bmp\"";
-	json += ",\"tile_size\" : 16,";
+	json += ",\"tile_size\" : 32,";
 	
 	json += "\"type_legend\": [";
 	for (int i = 0; i < this->tileList.size(); i++)
@@ -56,6 +56,8 @@ void Map::save()
 		{
 			json += "{\"layer\":" + std::to_string(this->mapTilePosition[i][j].layer);
 			json += ",\"layer2\":" + std::to_string(this->mapTilePosition[i][j].layer2);
+			json += ",\"layer3\":" + std::to_string(this->mapTilePosition[i][j].layer3);
+			json += ",\"layer4\":" + std::to_string(this->mapTilePosition[i][j].layer4);
 			json += ",\"type\":" + std::to_string(this->mapTilePosition[i][j].blockid);
 
 
@@ -216,6 +218,8 @@ void Map::readMapData(GameEngine* game)
 					int type_id = a[i][j]["type"].GetInt();
 					int type_id_layer = a[i][j]["layer"].GetInt();
 					int type_id_layer2 = a[i][j]["layer2"].GetInt();
+					int type_id_layer3 = a[i][j]["layer3"].GetInt();
+					int type_id_layer4 = a[i][j]["layer4"].GetInt();
 
 					if (!document["type_legend"][type_id].HasMember("image_x") || !document["type_legend"][type_id].HasMember("image_y"))
 					{
@@ -236,6 +240,8 @@ void Map::readMapData(GameEngine* game)
 					tile.blockid = type_id;
 					tile.layer = type_id_layer;
 					tile.layer2 = type_id_layer2;
+					tile.layer3 = type_id_layer3;
+					tile.layer4 = type_id_layer4;
 					tile.boundingBoxType = 0;
 					mapTilePosition[i][j] = tile;
 					//count++;
@@ -262,6 +268,8 @@ void Map::readMapData(GameEngine* game)
 				tile.blockid = 0;
 				tile.layer = -1;
 				tile.layer2 = -1;
+				tile.layer3 = -1;
+				tile.layer4 = -1;
 				tile.boundingBoxType = 0;
 				mapTilePosition[i][j] = tile;
 			}
@@ -359,6 +367,20 @@ void Map::Draw(GameEngine* game)
 				rect2.y = this->tileList[mapTilePosition[y][x].layer2].y;
 				SDL_RenderCopy(game->renderer, this->tilesImage[mapTilePosition[y][x].type], &rect2, &rect);
 			}
+			if (mapTilePosition[y][x].layer3 != -1 && (this->displayLayer == -1 || this->displayLayer == 3))
+			{
+				rect2.x = this->tileList[mapTilePosition[y][x].layer3].x;
+
+				rect2.y = this->tileList[mapTilePosition[y][x].layer3].y;
+				SDL_RenderCopy(game->renderer, this->tilesImage[mapTilePosition[y][x].type], &rect2, &rect);
+			}
+			if (mapTilePosition[y][x].layer4 != -1 && (this->displayLayer == -1 || this->displayLayer == 4))
+			{
+				rect2.x = this->tileList[mapTilePosition[y][x].layer4].x;
+
+				rect2.y = this->tileList[mapTilePosition[y][x].layer4].y;
+				SDL_RenderCopy(game->renderer, this->tilesImage[mapTilePosition[y][x].type], &rect2, &rect);
+			}
 		}
 	}
 }
@@ -391,9 +413,11 @@ SDL_Texture *Map::Load_image(string filename, GameEngine* game)
 }
 void Map::ChangeTileType(int tile)
 {
-	if (this->tileList[tile].w == 0)
-		this->tileList[tile].w = 1;
-	else
+	
+	if (this->tileList[tile].w <= 2)
+		this->tileList[tile].w++;
+
+	if (this->tileList[tile].w > 2)
 		this->tileList[tile].w = 0;
 
 }
@@ -421,6 +445,10 @@ void Map::RemoveLayer(GameEngine* game, int x, int y, int layer)
 		this->mapTilePosition[gridYpos][gridXpos].layer = -1;
 	if (layer == 2)
 		this->mapTilePosition[gridYpos][gridXpos].layer2 = -1;
+	if (layer == 3)
+		this->mapTilePosition[gridYpos][gridXpos].layer3 = -1;
+	if (layer == 4)
+		this->mapTilePosition[gridYpos][gridXpos].layer4 = -1;
 
 }
 
@@ -452,6 +480,10 @@ void Map::ChangeTile(GameEngine* game, int mousePosX, int mousePosY, int tile, i
 		this->mapTilePosition[gridYpos][gridXpos].layer = tile;
 	if (layer == 2)
 		this->mapTilePosition[gridYpos][gridXpos].layer2 = tile;
+	if (layer == 3)
+		this->mapTilePosition[gridYpos][gridXpos].layer3 = tile;
+	if (layer == 4)
+		this->mapTilePosition[gridYpos][gridXpos].layer4 = tile;
 
 }
 

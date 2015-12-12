@@ -18,6 +18,8 @@ public:
 	key key1;
 	key key2;
 	key key3;
+	key key4;
+	key key5;
 	key keyCtrl;
 	key keyG;
 	key keyS;

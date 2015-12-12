@@ -83,6 +83,14 @@ void MapState::Update(GameEngine* game)
 	{
 		this->workinglayer = 2;
 	}
+	if (inputHandler.key4.pressed == true)
+	{
+		this->workinglayer = 3;
+	}
+	if (inputHandler.key5.pressed == true)
+	{
+		this->workinglayer = 4;
+	}
 	if (inputHandler.keyA.pressed == true && inputHandler.keyCtrl.pressed == true)
 	{
 		map.ShowLayer(-1);
@@ -98,6 +106,14 @@ void MapState::Update(GameEngine* game)
 	if (inputHandler.key3.pressed == true && inputHandler.keyCtrl.pressed == true)
 	{
 		map.ShowLayer(2);
+	}
+	if (inputHandler.key4.pressed == true && inputHandler.keyCtrl.pressed == true)
+	{
+		map.ShowLayer(3);
+	}
+	if (inputHandler.key5.pressed == true && inputHandler.keyCtrl.pressed == true)
+	{
+		map.ShowLayer(4);
 	}
 
 

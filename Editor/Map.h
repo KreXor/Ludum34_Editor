@@ -29,6 +29,8 @@ private:
 		SDL_Rect imagePosition;
 		int layer;
 		int layer2;
+		int layer3;
+		int layer4;
 		int type;
 		int blockid;
 		int boundingBoxType; // so we know if there is gound have a slope or note, see physics.c for more info.

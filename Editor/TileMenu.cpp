@@ -14,7 +14,8 @@ void TileMenu::Init(GameEngine* game)
 	textBuffer.push_back(AddTextString("Working Layer: 3", game->renderer, { 0, 0, 0 }, game->screenWidth - 320, game->screenHeigth - 160, 16));
 	textBuffer.push_back(AddTextString("Zoom Level: 1x", game->renderer, { 0, 0, 0 }, game->screenWidth - 320, game->screenHeigth - 130, 16));
 	textBuffer.push_back(AddTextString("Tile Page: 1", game->renderer, { 0, 0, 0 }, game->screenWidth - 320, game->screenHeigth - 100, 16));
-
+	textBuffer.push_back(AddTextString("Working Layer: 4", game->renderer, { 0, 0, 0 }, game->screenWidth - 320, game->screenHeigth - 160, 16));
+	textBuffer.push_back(AddTextString("Working Layer: 5", game->renderer, { 0, 0, 0 }, game->screenWidth - 320, game->screenHeigth - 160, 16));
 }
 TileMenu::textObject TileMenu::AddTextString(std::string text, SDL_Renderer* renderer, SDL_Color text_color, int posX, int posY, int fontSize)
 {
@@ -126,4 +127,13 @@ void TileMenu::Draw(GameEngine* game, Map map, int selectedTile, int layer)
 
 	SDL_RenderCopy(game->renderer, textBuffer[5].text, NULL, &textBuffer[5].rect);
 	SDL_RenderCopy(game->renderer, textBuffer[6].text, NULL, &textBuffer[6].rect);
+
+	if (layer == 3)
+	{
+		SDL_RenderCopy(game->renderer, textBuffer[7].text, NULL, &textBuffer[7].rect);
+	}
+	if (layer == 4)
+	{
+		SDL_RenderCopy(game->renderer, textBuffer[8].text, NULL, &textBuffer[8].rect);
+	}
 }
