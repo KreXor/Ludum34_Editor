@@ -414,12 +414,11 @@ SDL_Texture *Map::Load_image(string filename, GameEngine* game)
 void Map::ChangeTileType(int tile)
 {
 	
-	if (this->tileList[tile].w <= 2)
+	if (this->tileList[tile].w <= 10)
 		this->tileList[tile].w++;
 
-	if (this->tileList[tile].w > 2)
+	if (this->tileList[tile].w > 10)
 		this->tileList[tile].w = 0;
-
 }
 
 void Map::RemoveLayer(GameEngine* game, int x, int y, int layer)

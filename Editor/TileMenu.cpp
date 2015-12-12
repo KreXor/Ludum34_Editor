@@ -1,4 +1,5 @@
 #include "TileMenu.h"
+#include <string>
 TileMenu::TileMenu()
 {
 	
@@ -47,6 +48,12 @@ void TileMenu::ChangeTilePageText(GameEngine* game, std::string text)
 {
 	textBuffer[6] = AddTextString(text, game->renderer, { 0, 0, 0 }, game->screenWidth - 320, game->screenHeigth - 100, 16);
 }
+
+void TileMenu::ChangeTypeText(GameEngine* game, std::string text)
+{
+	textBuffer[0] = AddTextString(text, game->renderer, { 0, 0, 0 }, game->screenWidth - 320, game->screenHeigth - 190, 16);
+}
+
 void TileMenu::Draw(GameEngine* game, Map map, int selectedTile, int layer)
 {
 	SDL_Rect r;
@@ -103,14 +110,11 @@ void TileMenu::Draw(GameEngine* game, Map map, int selectedTile, int layer)
 	SDL_RenderCopy(game->renderer, map.tilesImage[0], &rect2, &rect);
 	
 
-	if (map.tileList[selectedTile].w == 0)
-	{
-		SDL_RenderCopy(game->renderer, textBuffer[0].text, NULL, &textBuffer[0].rect);
-	}
-	else
-	{
-		SDL_RenderCopy(game->renderer, textBuffer[1].text, NULL, &textBuffer[1].rect);
-	}
+
+	ChangeTypeText(game, "Tile Type: " + to_string(map.tileList[selectedTile].w));
+
+	SDL_RenderCopy(game->renderer, textBuffer[0].text, NULL, &textBuffer[0].rect);
+	
 
 	if (layer == 0)
 	{

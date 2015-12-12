@@ -27,6 +27,7 @@ private:
 	vector<textObject> textBuffer;
 
 public:
+	void ChangeTypeText(GameEngine* game, std::string text);
 	int tileSize = 1;
 	int tilesPerRow = 32;
 	int nrRows = 4;
